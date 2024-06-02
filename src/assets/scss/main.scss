@@ -1,0 +1,76 @@
+$bg: #fff;
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  src: local("Opensans"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+input {
+  font-size: 16px;
+  font-family: "Montserrat";
+}
+
+svg {
+  path,
+  circle {
+    transition: all 0.2s;
+  }
+}
+
+body {
+  background: $bg;
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+.container {
+  max-width: 1266px;
+  margin: 0 auto;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #0000;
+  border-right-color: #e31f24;
+  position: relative;
+  animation: l24 1s infinite linear;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: inherit;
+  animation: inherit;
+  animation-duration: 2s;
+}
+.loader:after {
+  animation-duration: 4s;
+}
+@keyframes l24 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.loading-mask {
+  position: absolute;
+  inset: 0;
+  background: #00000029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
