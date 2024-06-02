@@ -38,6 +38,7 @@ export default {
   max-height: 500px;
   padding: 0 10px;
   margin: 0 -10px;
+  padding-bottom: 16px;
   &::-webkit-scrollbar {
     width: 6px; /* ширина всей полосы прокрутки */
   }

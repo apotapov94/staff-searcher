@@ -6,6 +6,7 @@
         Режим поиска по <span>{{ searchMode === "username" ? "имени пользователя" : "id" }}</span>
       </p>
       <input class="search-form__input" placeholder="Введите Id или имя " type="text" v-model="searchValue" />
+      <span class="search-reset" @click="searchReset">Сбросить поиск</span>
     </form>
     <div class="search-results">
       <h2>Результаты</h2>
@@ -51,6 +52,9 @@ export default {
       e.preventDefault();
       this.$store.dispatch("searchUsers");
     },
+    searchReset() {
+      this.$store.dispatch("searchReset");
+    },
   },
 };
 </script>
@@ -63,6 +67,17 @@ h2 {
 .sidebar {
   padding: 40px 24px;
   position: relative;
+}
+.search-reset {
+  font-size: 12px;
+  text-decoration: underline;
+  color: #e31f24;
+  margin-top: 8px;
+  display: inline-block;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .search-form {

@@ -41,8 +41,14 @@ export default {
     setCurUserID(state, id) {
       state.curUserID = id;
     },
-    resetSearch(state) {
+    resetUsers(state) {
       state.users = null;
+    },
+    resetSearch(state) {
+      state.search.value = "";
+      state.users = null;
+      state.currentUser = null;
+      state.curUserID = 0;
     },
     resetCurrentUser(state) {
       state.currentUser = null;
@@ -50,9 +56,12 @@ export default {
     },
   },
   actions: {
+    searchReset({ commit }) {
+      commit("resetSearch");
+    },
     searchUsers({ commit, state }) {
       commit("setMessage", "");
-      commit("resetSearch");
+      commit("resetUsers");
       commit("resetCurrentUser");
       commit("setLoading", "search");
       let explodedValues = state.search.value.split(",");
