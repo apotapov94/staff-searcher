@@ -117,7 +117,7 @@ export default {
         })
         .catch((error) => {
           commit("setLoading", false);
-          console.error("There was a problem with the fetch operation:", error.message);
+          console.error(error.message);
         });
     },
     updateSearchValue({ commit, state }, value) {
@@ -132,7 +132,6 @@ export default {
           newValue = value.replace(/[a-zA-Z]/g, "");
         }
       } else {
-        console.log("Введен текст");
         if (state.search.value === "") {
           commit("setSearchMode", "username");
           newValue = value;
